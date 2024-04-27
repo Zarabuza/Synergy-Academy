@@ -8,7 +8,7 @@ cnt_boats = 0 #сюда будем записывать кол-во исполь
 
 while len(fishermens_weight) != 0:
     if len(fishermens_weight) > 1:
-        if (fishermens_weight[-1] + fishermens_weight[0]) < m:
+        if (fishermens_weight[-1] + fishermens_weight[0]) <= m:
             cnt_boats += 1
             del fishermens_weight[-1]
             del fishermens_weight[0]
@@ -17,5 +17,6 @@ while len(fishermens_weight) != 0:
             del fishermens_weight[-1]
     else:
         cnt_boats += 1
+        break
 
 print(cnt_boats)
