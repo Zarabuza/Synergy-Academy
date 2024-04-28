@@ -19,4 +19,4 @@ while len(fishermens_weight) != 0:
         cnt_boats += 1
         break
 
-print(cnt_boats)
+print(cnt_boats) 
