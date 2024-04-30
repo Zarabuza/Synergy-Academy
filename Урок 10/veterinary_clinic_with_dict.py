@@ -1,30 +1,26 @@
-pets_variables = ['animal_specials', 'animal_age', 'owners_name']
-
 pets = dict()
+
+keys = ['animal_specials', 'animal_age', 'owners_name']
 
 questions = ['Как зовут вашего любимца?', 'Укажите вид вашего животного', 'Введите возраст вашего питомца', 'Ваше имя']
 
+pets_variables = dict.fromkeys(keys)
+
 for i in range(4):
     if i == 0:
-        answer = input(questions[i])
-        pets[answer] = 0
+        animal_name = input(questions[i])
+        pets[animal_name] = 0
     else:
-        pets_variables =(i, input(questions[i]))
+        pets_variables[keys[i-1]] = input(questions[i])
 
+pets[animal_name] = pets_variables
 
-def сonvert_list_to_dict(list):
-    res_dct = {list[i]: list[i + 1] for i in range(0, len(list), 2)}
-    return res_dct
-
-pets[answer] = сonvert_list_to_dict(pets_variables)
-
-years_type = []
-if animal_age == 1:
+years_type = [] 
+if pets[animal_name]['animal_age'][-1] == '1':
     years_type = 'год'
-elif animal_age == 2 or animal_age[-1] == 3 or animal_age[-1] == 4:
-    years_type = 'года' 
+elif pets[animal_name]['animal_age'][-1] == '2' or pets[animal_name]['animal_age'][-1] == '3' or pets[animal_name]['animal_age'][-1] == '4':
+    years_type = 'года'
 else:
     years_type = 'лет'
 
-print(f'Это {animal_specials} по кличке {animal_name}. Возраст питомца: {animal_age} {years_type}.'
-f'Имя владельца: {owners_name}')
+print(f'Это {pets[animal_name]["animal_specials"]} по кличке "{animal_name}". Возраст питомца: {pets[animal_name]["animal_age"]} {years_type}. Имя владельца: {pets[animal_name]["owners_name"]}')
